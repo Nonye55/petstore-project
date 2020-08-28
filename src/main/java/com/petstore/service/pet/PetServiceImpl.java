@@ -1,4 +1,42 @@
 package com.petstore.service.pet;
 
-public class PetServiceImpl {
+import com.petstore.models.Pet;
+import com.petstore.repository.PetRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class PetServiceImpl  implements PetService{
+
+    @Autowired
+    PetRepository petRepository;
+
+    @Override
+    public Pet save(Pet pet) {
+        return petRepository.save(pet);
+    }
+
+    @Override
+    public Optional<Pet> findById(Integer Id) {
+        return petRepository.findById(Id);
+    }
+
+    @Override
+    public Pet update(Pet pet) {
+        return petRepository.save(pet);
+    }
+
+    @Override
+    public void delete(Integer petId) {
+        petRepository.deleteById(petId);
+
+    }
+
+    @Override
+    public List<Pet> findAll() {
+        return petRepository.findAll();
+    }
 }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:switch="${storPets}">
+    <h2 th:case="null">No added yet!</h2>
+    <div th:case="*">
+        <h2>All stores</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Breed</th>
+                <th>Sex</th>
+                <th>Age</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="store : ${storePets}">
+                <td th:text="${pet.name}"></td>
+                <td th:text="${pet.gettypes}"></td>
+                <td th:text="${store.getBreeds}"></td>
+                <td th:text="${store.getSex}"></td>
+                <td th:text="${store.getAge}"></td>
+
+                <td><a th:href="@{/store/pets/{id}(id=${store.id})}">Show Pets</a></td>
+<!--                <td><a th:href="@{/delete/{id}(id=${store.id})}">Delete</a></td>-->
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/store/list">Go back</a></p>
+</div>
+
+
+
+</body>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:switch="${storelist}">
+    <h2 th:case="null">No added yet!</h2>
+    <div th:case="*">
+        <h2>All stores</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>number</th>
+                <th>state</th>
+                <th>Country</th>
+                <th>city</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="store : ${storelist}">
+                <td th:text="${store.storeName}"></td>
+                <td th:text="${store.storeNumber}"></td>
+                <td th:text="${store.city}"></td>
+                <td th:text="${store.state}"></td>
+                <td th:text="${store.Country}"></td>
+
+                <td><a th:href="@{/store/pets/{id}(id=${store.id})}">Show Pets</a></td>z
+                <td><a th:href="@{/store/pets/create{id}(id=${store.id})}">Add Pets</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="//store/form">Add a new Store</a></p>
+</div>
+
+
+
+</body>
+</html>

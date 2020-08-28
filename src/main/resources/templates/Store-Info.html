@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Store Details Preview</h1>
+
+<p><a href="/" </p>
+    <p th: text="${storeObj.getId()}"></p>
+    <p th: text="${storeObj.StoreName}"></p>
+    <p th: text="${storeObj.StoreNumber}"></p>
+    <p th: text="${storeObj.getAddress}"></p>
+    <p th: text="${storeObj.getcity}"></p>
+    <p th: text="${storeObj.getState}"></p>
+    <p th: text="${storeObj.getCountry}"></p>
+
+</body>
+</html>
